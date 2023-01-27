@@ -1,7 +1,5 @@
 class Entry
 {
-
-    public string _entry;
     public string _quality;
 
     public string _prompt;
@@ -11,7 +9,6 @@ class Entry
     public string _date;
 
     
-
     public string GetDate(){
         DateTime currentTime = DateTime.Now;
         string dateString = currentTime.ToShortDateString();

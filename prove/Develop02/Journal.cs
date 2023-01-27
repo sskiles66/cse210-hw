@@ -12,17 +12,16 @@ class Journal
         _fileName = Console.ReadLine();
     
 
-    using (StreamWriter outputFile = new StreamWriter(_fileName)){
-    // You can add text to the file with the WriteLine method
-
     
-    foreach (Entry entry in _entries){
+    using (StreamWriter outputFile = new StreamWriter(_fileName)){
+   
+        foreach (Entry entry in _entries){
         
             Console.WriteLine();
             outputFile.WriteLine(entry.GetEntry());
             Console.WriteLine();
+            }
         }
-}
     }
 
     public void ReadJournal(){
@@ -30,10 +29,10 @@ class Journal
 
         Console.Write("Name the file that you want to load: ");
         _fileName = Console.ReadLine();
+
         string[] lines = System.IO.File.ReadAllLines(_fileName);
 
-        
-
+    
         foreach (string line in lines)
         {
             Entry entry = new Entry();
@@ -75,6 +74,7 @@ class Journal
         if (qualities_int.Count != 0){
             double qualAvg = qualities_int.Average();
             Console.WriteLine($"You average quality from 1 - 10 is: {qualAvg} ");
+            Console.WriteLine();
         }
 
     }
