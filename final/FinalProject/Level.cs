@@ -20,32 +20,14 @@ class Level
         _max = max;
     }
 
-    public string GetDescription(){
-        return "";
-    }
-
-    public void SetDescription(string description){
-        _description = description;
-    }
-
+    
     public int GetPoints(){
         return _points;
     }
 
-    public void SetPoints(int points){
-        _points = points;
-    }
-
-
-    public int GetObsStr(){
-        return _obsStr;
-    }
-
-    public void SetObsStr(int strength){
-        _obsStr = strength;
-    }
 
     public void RandomizeLevel(){
+
         var levels = new Dictionary<int, string>(){
 	    {0, "Health Level"},
 	    {1, "Low Risk Level"},
@@ -56,16 +38,12 @@ class Level
 
         var random = new Random();
 
-
         int val = random.Next(5);
-
         int val2 = random.Next(5);
 
         while (val == val2){
             val2 = random.Next(5);
         }
-
-        
 
         IDictionary<int, string> choices = new Dictionary<int, string>();
 
@@ -89,10 +67,8 @@ class Level
             result = Int32.Parse(inputString);
         }
 
-        
-
         if (choices[result] == "Health Level"){
-            HealthLevel healthLevel = new HealthLevel("For this level, you regain health but receive no points.", 0, 0, 0);
+            HealthLevel healthLevel = new HealthLevel("For this level, you gain health but receive no points.", 0, 0, 0);
             healthLevel.Execute();
         }
         else if (choices[result] == "Low Risk Level"){
@@ -108,11 +84,9 @@ class Level
             highLevel.Execute();
         }
         else if (choices[result] == "Strength Level"){
-            StrengthLevel strengthLevel = new StrengthLevel("For this level, you gain strength but receive no points.", 0, 0, 0);
+            StrengthLevel strengthLevel = new StrengthLevel("For this level, there is a chance that you will gain strength but receive no points.", 0, 0, 0);
             strengthLevel.Execute();
         }
-        
-
     }
 
     public void DisplayDescription(){
@@ -122,7 +96,6 @@ class Level
 
     public int RandomizeValue(int min, int max){
         var random = new Random();
-
 
         int val = random.Next(min, max);
         return val;
@@ -145,9 +118,8 @@ class Level
     }
 
     public void Battle(){
-        int obsStr = RandomizeValue(_min, _max);
 
-        Console.WriteLine(obsStr);
+        int obsStr = RandomizeValue(_min, _max);
         
         if (obsStr <= Player.GetStrength()){
             Console.WriteLine("You have managed to get through unharmed.");
@@ -164,11 +136,6 @@ class Level
         Console.Write("Press any key to continue: ");
         string inputString = Console.ReadLine();
         Console.Clear();
-    }
-    
-
-    public void test(){
-        Player.AddHealth();
     }
     
 }

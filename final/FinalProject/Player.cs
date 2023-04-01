@@ -54,8 +54,4 @@ static class Player
        _strength = _strength + strength;
     }
     
-
-
-
-
 }

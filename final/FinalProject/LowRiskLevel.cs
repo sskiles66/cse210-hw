@@ -15,7 +15,5 @@ class LowRiskLevel : Level
 
         Continue();
 
-        //Console.WriteLine($"You gain {_healthBonus} health.");
-        //Player.SetHealth(_healthBonus);
     }
 }

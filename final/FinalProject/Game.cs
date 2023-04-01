@@ -16,12 +16,14 @@ static class Game
     }
 
     static public void Save(){
+
         Console.Write("What file do you want to save to?: ");
         string inputString = Console.ReadLine();
         string fileName = inputString;
 
         using (StreamWriter outputFile = new StreamWriter(fileName))
     {
+
         outputFile.WriteLine(GetLevel());
         outputFile.WriteLine(Player.GetHealth());
         outputFile.WriteLine(Player.GetStrength());
@@ -32,6 +34,7 @@ static class Game
 
 
     static public void Load(){
+        
         Console.Write("Name the file that you want to load: ");
 
         string _fileName = Console.ReadLine();
