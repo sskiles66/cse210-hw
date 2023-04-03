@@ -7,8 +7,6 @@ class Level
 
     private int _points;
 
-    private int _obsStr;
-
     private int _min;
 
     private int _max;
